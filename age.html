@@ -1,0 +1,51 @@
+<!docutype html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age</title>
+	
+</head>
+<body>
+    <input type="date" id="DOB">
+	<span id="msg"></span>
+    <h2 id="result"></h2>
+	<button id="btn" type="submit" onClick="age()">click</button>
+    <script>
+	    function age(){
+	    var dob=document.getElementById("DOB").value;
+		var dob_age=new Date(dob);
+		console.log(dob_age);
+		if(dob=="")
+		{
+		   document.getElementById("msg").innerHTML="choose a date please";
+		   return false;
+		}
+		else{
+		  var sec=Date.now()-dob_age.getTime(); <!--get the milliseconds--> 
+		  console.log(sec);
+		  var age_date=new Date(sec);
+		  var year=age_date.getFullYear(); <!--get the first year-->
+		  console.log(year);
+		  var age=Math.abs(year-1970);  <!--answer is negative it convert the negative to positive-->
+		  return document.getElementById("result").innerHTML="age is:"+age+"year";
+		  }
+		  }
+		  
+		  
+		  <!-- document.getElementById("trigger").addEventListener("click",calculate); -->
+		  <!-- function calculate(){ -->
+               <!-- let dob=document.getElementById("dob").value, -->
+               <!-- dob_age=new Date(dob), -->
+               <!-- time=dob_age.getTime(), -->
+               <!-- cal=Date.now()-time, -->
+               <!-- age_calc=new Date(cal), -->
+               <!-- year=age_calc.getFullYear(), -->
+              <!-- age=Math.abs(year-1970); -->
+              <!-- document.write("Age is ",age); -->
+               <!-- console.log(age); -->
+
+            <!-- } -->
+	</script>
+</body>
+</html>
